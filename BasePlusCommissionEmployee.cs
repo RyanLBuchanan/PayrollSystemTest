@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 
 namespace EmployeesChp11
 {
-    public class CommissionEmployee : object
+    class BasePlusCommissionEmployee
     {
         public string FirstName { get; }
         public string LastName { get; }
         public string SocialSecurityNumber { get; }
         private decimal grossSales;
         private decimal commissionRate;
+        private decimal baseSalary;
 
-        // Five parameter constructor
-        public CommissionEmployee(string firstName, string lastName,
-            string socialSecurityNumber, decimal grossSales, decimal commissionRate)
+        // Six parameter constructor
+        public BasePlusCommissionEmployee(string firstName, string lastName,
+            string socialSecurityNumber, decimal grossSales, 
+            decimal commissionRate, decimal baseSalary)
         {
             // Implicit call to object constructor occurs here
             FirstName = firstName;
@@ -24,6 +26,7 @@ namespace EmployeesChp11
             SocialSecurityNumber = socialSecurityNumber;
             GrossSales = grossSales; // Validates gross sales
             CommissionRate = commissionRate; // Validates commission rate
+            BaseSalary = baseSalary;  // Validates base salary
         }
 
         // Property that gets and sets commission employee's gross sales
@@ -64,14 +67,34 @@ namespace EmployeesChp11
             }
         }
 
+        // Property that gets and sets commission employee's commission rate
+        public decimal BaseSalary
+        {
+            get
+            {
+                return baseSalary;
+            }
+            set
+            {
+                if (value < 0)  // Validation of not less the 0% or higher than 100% or 1.0
+                {
+                    throw new ArgumentOutOfRangeException(nameof(value),
+                        value, $"{nameof(BaseSalary)} must be greater than or equal to 0");
+                }
+
+                baseSalary = value;
+            }
+        }
+
         // Calculate commission employee's pay
-        public decimal Earnings() => commissionRate * grossSales;
+        public decimal Earnings() => baseSalary + (commissionRate * grossSales);
 
         // Return string representation of CommissionEmployee object
         public override string ToString() =>
             $"Commission employee:  {FirstName} {LastName}\n" +
             $"Social security number: {SocialSecurityNumber}\n" +
             $"Gross sales: {GrossSales:C}\n" +
-            $"Commission rate: {CommissionRate:F2}";
+            $"Commission rate: {CommissionRate:F2}" +
+            $"Base salary: {baseSalary:C}";
     }
 }
