@@ -11,8 +11,8 @@ namespace EmployeesChp11
         public string FirstName { get; }
         public string LastName { get; }
         public string SocialSecurityNumber { get; }
-        private decimal grossSales;
-        private decimal commissionRate;
+        protected decimal grossSales;
+        protected decimal commissionRate;
 
         // Five parameter constructor
         public CommissionEmployee(string firstName, string lastName,
@@ -65,7 +65,7 @@ namespace EmployeesChp11
         }
 
         // Calculate commission employee's pay
-        public decimal Earnings() => commissionRate * grossSales;
+        public virtual decimal Earnings() => commissionRate * grossSales;
 
         // Return string representation of CommissionEmployee object
         public override string ToString() =>
