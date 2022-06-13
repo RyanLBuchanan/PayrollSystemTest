@@ -41,14 +41,10 @@ namespace EmployeesChp11
         }
 
         // Calculate earnings
-        public override decimal Earnings() => baseSalary + (commissionRate * grossSales);
+        public override decimal Earnings() => BaseSalary + base.Earnings();
 
         // Return string representation of CommissionEmployee object
         public override string ToString() =>
-            $"Commission employee:  {FirstName} {LastName}\n" +
-            $"Social security number: {SocialSecurityNumber}\n" +
-            $"Gross sales: {GrossSales:C}\n" +
-            $"Commission rate: {CommissionRate:F2}" +
-            $"Base salary: {baseSalary:C}";
+            $"Base-salaried {base.ToString()}\nBase salary: {baseSalary:C}";
     }
 }
