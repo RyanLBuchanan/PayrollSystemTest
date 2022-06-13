@@ -21,44 +21,6 @@ namespace EmployeesChp11
             BaseSalary = baseSalary;  // Validates base salary
         }
 
-        //// Property that gets and sets commission employee's gross sales
-        //public decimal GrossSales
-        //{
-        //    get
-        //    {
-        //        return grossSales;
-        //    }
-        //    set
-        //    {
-        //        if (value < 0) // Validation -- the "check for this so and so
-        //        {
-        //            throw new ArgumentOutOfRangeException(nameof(value),
-        //                value, $"{nameof(GrossSales)} must be >= 0");
-        //        }
-
-        //        grossSales = value;
-        //    }
-        //}
-
-        //// Property that gets and sets commission employee's commission rate
-        //public decimal CommissionRate
-        //{
-        //    get
-        //    {
-        //        return commissionRate;
-        //    }
-        //    set
-        //    {
-        //        if (value <= 0 || value >= 1)  // Validation of not less the 0% or higher than 100% or 1.0
-        //        {
-        //            throw new ArgumentOutOfRangeException(nameof(value),
-        //                value, $"{nameof(CommissionRate)} must be greater than 0 and less than 1");
-        //        }
-
-        //        commissionRate = value;
-        //    }
-        //}
-
         // Property that gets and sets commission employee's commission rate
         public decimal BaseSalary
         {
