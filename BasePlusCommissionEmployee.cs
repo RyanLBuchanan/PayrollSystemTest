@@ -45,6 +45,6 @@ namespace EmployeesChp11
 
         // Return string representation of CommissionEmployee object
         public override string ToString() =>
-            $"Base-salaried {base.ToString()}\nBase salary: {baseSalary:C}";
+            $"Base-salaried {base.ToString()}\nBase salary: {BaseSalary:C}";
     }
 }
