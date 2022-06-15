@@ -6,22 +6,17 @@ using System.Threading.Tasks;
 
 namespace EmployeesChp11
 {
-    public class CommissionEmployee : object
+    public class CommissionEmployee : Employee
     {
-        public string FirstName { get; }
-        public string LastName { get; }
-        public string SocialSecurityNumber { get; }
         private decimal grossSales;
         private decimal commissionRate;
 
         // Five parameter constructor
         public CommissionEmployee(string firstName, string lastName,
-            string socialSecurityNumber, decimal grossSales, decimal commissionRate)
+            string socialSecurityNumber, decimal grossSales, 
+            decimal commissionRate)
+            : base(firstName, lastName, socialSecurityNumber)
         {
-            // Implicit call to object constructor occurs here
-            FirstName = firstName;
-            LastName = lastName;
-            SocialSecurityNumber = socialSecurityNumber;
             GrossSales = grossSales; // Validates gross sales
             CommissionRate = commissionRate; // Validates commission rate
         }
@@ -65,7 +60,7 @@ namespace EmployeesChp11
         }
 
         // Calculate commission employee's pay
-        public virtual decimal Earnings() => CommissionRate * GrossSales;
+        public override decimal Earnings() => CommissionRate * GrossSales;
 
         // Return string representation of CommissionEmployee object
         public override string ToString() =>
