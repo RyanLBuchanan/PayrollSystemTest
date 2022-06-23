@@ -50,7 +50,8 @@ namespace EmployeesChp11
                 if (currentEmployee is BasePlusCommissionEmployee)
                 {
                     // Downcast Employee reference to BasePlusCommissionEmployee reference
-                    var employee = (BasePlusCommissionEmployee)currentEmployee;
+                    //var employee = (BasePlusCommissionEmployee)currentEmployee;
+                    var employee = currentEmployee as BasePlusCommissionEmployee; // OR INSTEAD OF THE ABOVE, DO THIS
 
                     employee.BaseSalary *= 1.10M;
                     Console.WriteLine("New base salary with 10% increase is: " +
