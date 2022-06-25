@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EmployeesChp11
 {
-    public abstract class Employee
+    public abstract class Employee : IPayable
     {
         public string FirstName { get; }
         public string LastName { get; }
@@ -27,5 +27,7 @@ namespace EmployeesChp11
 
         // Abstract method overridden by derived classes
         public abstract decimal Earnings();  // No implementation here
+
+        public decimal GetPaymentAmount() => Earnings();
     }
 }
